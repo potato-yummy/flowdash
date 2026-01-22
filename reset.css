@@ -1,0 +1,77 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+img,
+ul,
+ol,
+li,
+form,
+fieldset,
+label,
+legend,
+input,
+textarea,
+button,
+table,
+caption,
+tbody,
+thead,
+tfoot,
+tr,
+th,
+td,
+article,
+aside,
+section,
+header,
+main,
+nav,
+footer {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-family: "Pretendard" sans-serif;
+}
+
+html {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: #ffffff;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+button {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+summary {
+  list-style: none;
+  cursor: pointer;
+}
