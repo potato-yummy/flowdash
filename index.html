@@ -6,28 +6,52 @@
     <title>FlowDash</title>
 
     <link rel="stylesheet" href="css/reset.css" />
+<<<<<<< HEAD
     <link rel="stylesheet" href="css/header-style.css" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <!--  닉네임 모달 -->
     <div class="nickname-modal hidden">
+=======
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- 닉네임 받을 모달 -->
+    <div class="nickname-modal">
+>>>>>>> 960504b73eac7922bd9d447c095b1c384e0c53df
       <div class="nickname-setting-container">
         <div class="welcome">
           <h1>반가워요 👋</h1>
           <p>계획을 관리하기 위해 닉네임을 설정해주세요!</p>
         </div>
+<<<<<<< HEAD
 
         <div class="nickname-input-box">
           <input type="text" maxlength="10" placeholder="닉네임을 설정해주세요." value="FlowDash" />
+=======
+        <div>
+          <input
+            type="text"
+            required
+            maxlength="10"
+            placeholder="닉네임을 설정해주세요."
+            value="FlowDash"
+          />
+>>>>>>> 960504b73eac7922bd9d447c095b1c384e0c53df
           <button class="login-btn">확인</button>
         </div>
       </div>
     </div>
 
+<<<<<<< HEAD
     <!--  전체 앱 컨테이너 -->
     <div class="To-Do-List-Container">
       <!-- 인삿말 / 닉네임 -->
+=======
+    <!-- 헤더 부분 -->
+    <div class="To-Do-List-Container">
+>>>>>>> 960504b73eac7922bd9d447c095b1c384e0c53df
       <div class="Greeting-Nickname-Mode-container">
         <div class="Greeting-Nickname">
           <h1>
@@ -36,13 +60,19 @@
           </h1>
           <p id="today-date">2026년 00월 00일</p>
         </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 960504b73eac7922bd9d447c095b1c384e0c53df
         <button class="Mode">
           <span>🌙</span>
         </button>
       </div>
 
+<<<<<<< HEAD
       <!-- 대시보드 -->
+=======
+>>>>>>> 960504b73eac7922bd9d447c095b1c384e0c53df
       <div class="Dashboard-container">
         <div class="Total-Tasks">
           <h3>Total Tasks</h3>
@@ -117,11 +147,44 @@
         </div>
       </div>
 
+<<<<<<< HEAD
       <!-- footer -->
+=======
+      <!-- 모달 팝업 -->
+      <div class="modal">
+        <div class="modal-popup">
+          <h3 class="modal-new-correct">새 할 일</h3>
+          <h4>제목 *</h4>
+          <input type="text" placeholder="제목을 입력하세요" />
+          <h4>내용</h4>
+          <textarea class="modal-content-input" placeholder="내용을 입력하세요"></textarea>
+          <h4>우선순위</h4>
+          <div class="modal-priority">
+            <button type="button" data-priority="높음">높음</button>
+            <button type="button" data-priority="중간">중간</button>
+            <button type="button" data-priority="낮음">낮음</button>
+          </div>
+          <h4>상태</h4>
+          <select class="modal-todo-list">
+            <option>할 일</option>
+            <option>진행 중</option>
+            <option>완료</option>
+          </select>
+          <div class="modal-contract">
+            <button class="modal-cancel">취소</button>
+            <button class="modal-save">저장하기</button>
+          </div>
+        </div>
+        <button class="Mode">
+          <p>모드 설정 아이콘</p>
+        </button>
+      </div>
+>>>>>>> 960504b73eac7922bd9d447c095b1c384e0c53df
       <footer class="footer">
         <p>© 2026 FlowDash. All rights reserved.</p>
       </footer>
     </div>
+<<<<<<< HEAD
 
     <!--  새 할 일 모달 -->
     <div class="modal">
@@ -158,5 +221,9 @@
     <!-- JS -->
     <script src="js/header.js" defer></script>
     <script src="js/dashboard.js" defer></script>
+=======
+    <script src="js/header.js" defer></script>
+    <script type="module" src="./js/dashboard.js"></script>
+>>>>>>> 960504b73eac7922bd9d447c095b1c384e0c53df
   </body>
 </html>
