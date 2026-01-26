@@ -1,0 +1,331 @@
+body {
+  background-color: #f6f7fa;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+.To-Do-List-Container {
+  width: 100%;
+  height: 100%;
+  max-width: 1200px;
+}
+
+.Greeting-Nickname-Mode-container {
+  background-color: #ffffff;
+  padding: 20px 30px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.Greeting-Nickname h1 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.nickname {
+  color: #4d53eb;
+}
+
+.Greeting-Nickname p {
+  font-size: 15px;
+  color: #79899b;
+  margin-top: 6px;
+}
+
+.Mode {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid #eee;
+  background-color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Dashboard-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.Dashboard-container > div {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.Dashboard-container h3 {
+  font-size: 16px;
+  color: #9ba9ba;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.Dashboard-container p {
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.Search-container {
+  background-color: #ffffff;
+  padding: 15px 25px;
+  border-radius: 15px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+}
+
+.To-Do-Search {
+  position: relative;
+  flex: 1;
+  width: 100%;
+}
+
+.To-Do-Search input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  outline: none;
+  padding-right: 40px;
+}
+
+.search-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ba9ba;
+  font-size: 14px;
+  background-image: url(./asset/돋보기.svg);
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+.Term,
+.Priority,
+.Array {
+  padding: 10px 15px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  background-color: #ffffff;
+  font-size: 14px;
+  color: #79899b;
+  cursor: pointer;
+}
+
+.Add {
+  flex: 1;
+  background-color: #4d53eb;
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.To-Do-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.To-Do-container > div {
+  background-color: #f1f2f5;
+  border-radius: 15px;
+  padding: 24px;
+  min-height: 450px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.To-Do-List p,
+.In-Progress-List p,
+.Done-List p {
+  color: #79899b;
+  font-weight: 700;
+  font-size: 16px;
+  padding-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #79899b;
+}
+
+.footer {
+  width: 100%;
+  padding: 40px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer p {
+  font-size: 14px;
+  color: #9ba9ba;
+  letter-spacing: -0.5px;
+  font-weight: bold;
+}
+
+.Active-Filters-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 0 5px;
+}
+
+.filter-tags {
+  display: flex;
+  gap: 8px;
+}
+
+.filter-chip {
+  background-color: #f0f2ff;
+  color: #4d53eb;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid #dbe0ff;
+}
+
+.reset-all-btn {
+  color: #ff4d4d;
+  background: none;
+  border: none;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/*  모달  */
+.modal {
+  display: none;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-popup {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 20px;
+  width: 450px;
+  max-width: 90%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modal-popup h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: -5px;
+}
+
+.modal-popup input[type="text"],
+.modal-popup select {
+  padding: 12px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  outline: none;
+  font-size: 14px;
+}
+
+.modal-content-input {
+  width: 100%;
+  height: 120px;
+  padding: 12px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  outline: none;
+  font-size: 14px;
+  resize: none;
+  font-family: inherit;
+}
+
+.modal-new-correct {
+  font-size: 24px;
+  padding-bottom: 10px;
+}
+
+.modal-priority {
+  display: flex;
+  gap: 10px;
+}
+
+.modal-priority button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #eee;
+  background: white;
+  color: #79899b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal-priority button[data-priority="높음"].active {
+  background-color: #ff4d4d; /* 빨간색 */
+  color: white;
+  border-color: #ff4d4d;
+}
+
+.modal-priority button[data-priority="중간"].active {
+  background-color: #ff9f1c; /* 주황색 */
+  color: white;
+  border-color: #ff9f1c;
+}
+
+.modal-priority button[data-priority="낮음"].active {
+  background-color: #2ecc71; /* 초록색 */
+  color: white;
+  border-color: #2ecc71;
+}
+
+.modal-contract {
+  display: flex;
+  justify-content: flex-end;
+  gap: 30px;
+  margin-top: 10px;
+}
+
+.modal-save {
+  background-color: #4d53eb;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.modal-cancel {
+  border: none;
+  cursor: pointer;
+}

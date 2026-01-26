@@ -3,9 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<<<<<<< HEAD
     <title>FlowDash</title>
     <link rel="stylesheet" href="css/header-style.css" />
     <link rel="stylesheet" href="css/reset.css" />
+=======
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/reset.css" />
+>>>>>>> 1b89874 (2026-01-26 dashboard.js 및 모달 추가)
   </head>
   <body>
     <div class="nickname-modal">
@@ -15,6 +21,7 @@
           <p>계획을 관리하기 위해 닉네임을 설정해주세요!</p>
           <p></p>
         </div>
+<<<<<<< HEAD
         <div>
           <input
             type="text"
@@ -24,10 +31,88 @@
             value="FlowDash"
           />
           <button class="login-btn">확인</button>
+=======
+        <button class="Mode">
+          <p>모드 설정 아이콘</p>
+        </button>
+      </div>
+      <div class="Dashboard-container">
+        <div class="Total-Tasks">
+          <h3>Total Tasks</h3>
+          <p>0</p>
+        </div>
+        <div class="To-Do">
+          <h3>To Do</h3>
+          <p>0</p>
+        </div>
+        <div class="In-Progress">
+          <h3>In Progress</h3>
+          <p>0</p>
+        </div>
+        <div class="Done">
+          <h3>Done</h3>
+          <p>0</p>
+        </div>
+        <div class="Achievement">
+          <h3>Achievement</h3>
+          <p>-</p>
         </div>
       </div>
+      <div class="Search-container">
+        <div class="To-Do-Search">
+          <input type="text" placeholder="할 일 검색..." />
+          <span class="search-icon"> </span>
+        </div>
+        <select class="Term">
+          <option>전체 기간</option>
+          <option>오늘</option>
+          <option>최근 7일</option>
+        </select>
+        <select class="Priority">
+          <option>전체 우선순위</option>
+          <option>높음</option>
+          <option>중간</option>
+          <option>낮음</option>
+        </select>
+        <div class="Array">
+          <p>정렬: 오름차순↑</p>
+        </div>
+        <button class="Add">
+          <p>+ 새 할 일</p>
+        </button>
+      </div>
+
+      <div class="Active-Filters-container">
+        <div id="filter-status-tags" class="filter-tags"></div>
+        <button class="reset-all-btn" onclick="resetFilters()">
+          전체 데이터 초기화
+        </button>
+      </div>
+
+      <div class="To-Do-container kanban-board">
+        <div class="column todo">
+          <h3>할 일</h3>
+          <div class="card-list" id="todo-list"></div>
+        </div>
+
+        <div class="column progress">
+          <h3>진행 중</h3>
+          <div class="card-list" id="progress-list"></div>
+        </div>
+
+        <div class="column done">
+          <h3>완료</h3>
+          <div class="card-list" id="done-list"></div>
+>>>>>>> 1b89874 (2026-01-26 dashboard.js 및 모달 추가)
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p>@2026 Flowdash. All rights reversed.</p>
+      </footer>
     </div>
 
+<<<<<<< HEAD
     <div class="Greeting-Nickname-Mode-container">
       <div class="Greeting-Nickname">
         <h1>
@@ -35,11 +120,45 @@
           <span class="nickname">nickname</span>님
         </h1>
         <p id="today-date">2026년 00월 00일</p>
+=======
+    <!-- 모달 팝업 -->
+    <div class="modal">
+      <div class="modal-popup">
+        <h3 class="modal-new-correct">새 할 일</h3>
+        <h4>제목 *</h4>
+        <input type="text" placeholder="제목을 입력하세요" />
+        <h4>내용</h4>
+        <textarea
+          class="modal-content-input"
+          placeholder="내용을 입력하세요"
+        ></textarea>
+        <h4>우선순위</h4>
+        <div class="modal-priority">
+          <button type="button" data-priority="높음">높음</button>
+          <button type="button" data-priority="중간">중간</button>
+          <button type="button" data-priority="낮음">낮음</button>
+        </div>
+        <h4>상태</h4>
+        <select class="modal-todo-list">
+          <option>할 일</option>
+          <option>진행 중</option>
+          <option>완료</option>
+        </select>
+        <div class="modal-contract">
+          <button class="modal-cancel">취소</button>
+          <button class="modal-save">저장하기</button>
+        </div>
+>>>>>>> 1b89874 (2026-01-26 dashboard.js 및 모달 추가)
       </div>
       <button class="Mode">
         <p>모드 설정 아이콘</p>
       </button>
     </div>
+<<<<<<< HEAD
     <script src="js/header.js" defer></script>
+=======
+
+    <script type="module" src="./js/dashboard.js"></script>
+>>>>>>> 1b89874 (2026-01-26 dashboard.js 및 모달 추가)
   </body>
 </html>
