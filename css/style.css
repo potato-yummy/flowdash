@@ -109,7 +109,7 @@ body {
   transform: translateY(-50%);
   color: #9ba9ba;
   font-size: 14px;
-  background-image: url(./asset/돋보기.svg);
+  background-image: url('../assets/icons8-돋보기.svg');
   background-size: contain;
   width: 20px;
   height: 20px;
@@ -215,6 +215,86 @@ body {
   cursor: pointer;
 }
 
+/* 카드가 들어가는 리스트 영역 */
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 10px 0;
+}
+
+.todo-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.todo-card:hover {
+  transform: translateY(-3px);
+}
+
+.todo-card h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 12px 0 8px 0;
+  color: #2d3436;
+}
+
+.todo-card p {
+  font-size: 14px;
+  color: #636e72;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #b2bec3;
+  border-top: 1px solid #f1f2f5;
+  padding-top: 12px;
+}
+
+.priority-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.todo-card.is-done {
+  background-color: #f2f4f5;
+  border: 1px solid #e0e0e0;
+}
+
+.todo-card.is-done h4 {
+  text-decoration: line-through;
+  color: #9ba9ba;
+}
+
+.todo-card.is-done p {
+  color: #c1c1c1;
+}
+
+.p-높음 {
+  background: #fff0f0;
+  color: #ff4d4d;
+}
+.p-중간 {
+  background: #fff7eb;
+  color: #ff9f1c;
+}
+.p-낮음 {
+  background: #edfaf2;
+  color: #2ecc71;
+}
+
 /*  모달  */
 .modal {
   display: none;
@@ -249,7 +329,7 @@ body {
   margin-bottom: -5px;
 }
 
-.modal-popup input[type="text"],
+.modal-popup input[type='text'],
 .modal-popup select {
   padding: 12px;
   border: 1px solid #eee;
@@ -291,19 +371,19 @@ body {
   transition: all 0.2s ease;
 }
 
-.modal-priority button[data-priority="높음"].active {
+.modal-priority button[data-priority='높음'].active {
   background-color: #ff4d4d; /* 빨간색 */
   color: white;
   border-color: #ff4d4d;
 }
 
-.modal-priority button[data-priority="중간"].active {
+.modal-priority button[data-priority='중간'].active {
   background-color: #ff9f1c; /* 주황색 */
   color: white;
   border-color: #ff9f1c;
 }
 
-.modal-priority button[data-priority="낮음"].active {
+.modal-priority button[data-priority='낮음'].active {
   background-color: #2ecc71; /* 초록색 */
   color: white;
   border-color: #2ecc71;

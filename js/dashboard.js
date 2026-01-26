@@ -3,20 +3,20 @@ let todoList = [];
 
 // [2. 필터 및 정렬 상태 관리 (Global State)]
 const currentFilters = {
-  search: "",
-  term: "전체 기간",
-  priority: "전체 우선순위",
-  sortOrder: "asc",
+  search: '',
+  term: '전체 기간',
+  priority: '전체 우선순위',
+  sortOrder: 'asc',
 };
 
 // [3. DOM 요소 가져오기]
-const searchInput = document.querySelector(".To-Do-Search input");
-const termSelect = document.querySelector(".Term");
-const prioritySelect = document.querySelector(".Priority");
-const sortBtn = document.querySelector(".Array");
-const todoColumn = document.querySelector("#todo-list");
-const progressColumn = document.querySelector("#progress-list");
-const doneColumn = document.querySelector("#done-list");
+const searchInput = document.querySelector('.To-Do-Search input');
+const termSelect = document.querySelector('.Term');
+const prioritySelect = document.querySelector('.Priority');
+const sortBtn = document.querySelector('.Array');
+const todoColumn = document.querySelector('#todo-list');
+const progressColumn = document.querySelector('#progress-list');
+const doneColumn = document.querySelector('#done-list');
 
 // [4. 빈 화면(Empty State) UI 템플릿]
 const emptyStateHTML = `
@@ -37,16 +37,15 @@ function applyFilterAndSort() {
 
     // 우선순위 필터
     const matchesPriority =
-      currentFilters.priority === "전체 우선순위" ||
-      item.priority === currentFilters.priority;
+      currentFilters.priority === '전체 우선순위' || item.priority === currentFilters.priority;
 
     // 기간 필터 로직
     let matchesTerm = true;
-    if (currentFilters.term === "오늘") {
-      const today = new Date().toISOString().split("T")[0];
-      const itemDate = new Date(item.id).toISOString().split("T")[0];
+    if (currentFilters.term === '오늘') {
+      const today = new Date().toISOString().split('T')[0];
+      const itemDate = new Date(item.id).toISOString().split('T')[0];
       matchesTerm = today === itemDate;
-    } else if (currentFilters.term === "최근 7일") {
+    } else if (currentFilters.term === '최근 7일') {
       const sevenDaysAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
       matchesTerm = item.id >= sevenDaysAgo;
     }
@@ -56,7 +55,7 @@ function applyFilterAndSort() {
 
   // 2) 정렬 로직
   filtered.sort((a, b) => {
-    return currentFilters.sortOrder === "asc" ? a.id - b.id : b.id - a.id;
+    return currentFilters.sortOrder === 'asc' ? a.id - b.id : b.id - a.id;
   });
 
   // 3) UI 업데이트 (리스트, 대시보드, 칩)
@@ -68,26 +67,23 @@ function applyFilterAndSort() {
 // [6. 통계 업데이트]
 function updateDashboard(data) {
   const total = data.length;
-  const todoCount = data.filter((item) => item.status === "To Do").length;
-  const progressCount = data.filter(
-    (item) => item.status === "In Progress",
-  ).length;
-  const doneCount = data.filter((item) => item.status === "Done").length;
+  const todoCount = data.filter((item) => item.status === 'To Do').length;
+  const progressCount = data.filter((item) => item.status === 'In Progress').length;
+  const doneCount = data.filter((item) => item.status === 'Done').length;
   const achievement = total === 0 ? 0 : Math.round((doneCount / total) * 100);
 
-  document.querySelector(".Total-Tasks p").textContent = total;
-  document.querySelector(".To-Do p").textContent = todoCount;
-  document.querySelector(".In-Progress p").textContent = progressCount;
-  document.querySelector(".Done p").textContent = doneCount;
-  document.querySelector(".Achievement p").textContent =
-    total === 0 ? "-" : `${achievement}%`;
+  document.querySelector('.Total-Tasks p').textContent = total;
+  document.querySelector('.To-Do p').textContent = todoCount;
+  document.querySelector('.In-Progress p').textContent = progressCount;
+  document.querySelector('.Done p').textContent = doneCount;
+  document.querySelector('.Achievement p').textContent = total === 0 ? '-' : `${achievement}%`;
 }
 
 // [7. 칸반 보드 렌더링]
 function renderKanban(items) {
-  todoColumn.innerHTML = "";
-  progressColumn.innerHTML = "";
-  doneColumn.innerHTML = "";
+  todoColumn.innerHTML = '';
+  progressColumn.innerHTML = '';
+  doneColumn.innerHTML = '';
 
   // 데이터가 없을 때 각 컬럼에 안내 문구 표시
   if (items.length === 0) {
@@ -98,8 +94,13 @@ function renderKanban(items) {
   }
 
   items.forEach((item) => {
-    const card = document.createElement("div");
-    card.className = "todo-card";
+    const card = document.createElement('div');
+    card.className = 'todo-card';
+
+    if (item.status === 'Done') {
+      card.classList.add('is-done');
+    }
+
     card.innerHTML = `
       <div class="card-header">
         <span class="priority-tag p-${item.priority}">${item.priority}</span>
@@ -109,117 +110,120 @@ function renderKanban(items) {
       <div class="card-footer">${new Date(item.id).toLocaleString()}</div>
     `;
 
-    if (item.status === "To Do") todoColumn.appendChild(card);
-    else if (item.status === "In Progress") progressColumn.appendChild(card);
-    else if (item.status === "Done") doneColumn.appendChild(card);
+    if (item.status === 'To Do') todoColumn.appendChild(card);
+    else if (item.status === 'In Progress') progressColumn.appendChild(card);
+    else if (item.status === 'Done') doneColumn.appendChild(card);
   });
 }
 
 // [8. 필터 칩 렌더링]
 function renderFilterChips() {
-  const container = document.querySelector("#filter-status-tags");
+  const container = document.querySelector('#filter-status-tags');
   if (!container) return;
-  container.innerHTML = "";
+  container.innerHTML = '';
 
-  if (currentFilters.term !== "전체 기간") {
+  if (currentFilters.search.trim() !== '') {
+    container.innerHTML += `<span class="filter-chip search-chip">검색: "${currentFilters.search}"</span>`;
+  }
+
+  if (currentFilters.term !== '전체 기간') {
     container.innerHTML += `<span class="filter-chip">기간: ${currentFilters.term}</span>`;
   }
-  if (currentFilters.priority !== "전체 우선순위") {
+  if (currentFilters.priority !== '전체 우선순위') {
     container.innerHTML += `<span class="filter-chip">우선순위: ${currentFilters.priority}</span>`;
   }
-  const sortText = currentFilters.sortOrder === "asc" ? "오름차순" : "내림차순";
+  const sortText = currentFilters.sortOrder === 'asc' ? '오름차순' : '내림차순';
   container.innerHTML += `<span class="filter-chip">정렬: ${sortText}</span>`;
 }
 
 // [9. 데이터 초기화 함수]
 window.resetFilters = function () {
-  if (confirm("모든 데이터를 삭제하고 초기화하시겠습니까?")) {
+  if (confirm('모든 데이터를 삭제하고 초기화하시겠습니까?')) {
     todoList = [];
   }
 
-  currentFilters.search = "";
-  currentFilters.term = "전체 기간";
-  currentFilters.priority = "전체 우선순위";
-  currentFilters.sortOrder = "asc";
+  currentFilters.search = '';
+  currentFilters.term = '전체 기간';
+  currentFilters.priority = '전체 우선순위';
+  currentFilters.sortOrder = 'asc';
 
-  if (searchInput) searchInput.value = "";
-  if (termSelect) termSelect.value = "전체 기간";
-  if (prioritySelect) prioritySelect.value = "전체 우선순위";
-  sortBtn.querySelector("p").textContent = "정렬: 오름차순↑";
+  if (searchInput) searchInput.value = '';
+  if (termSelect) termSelect.value = '전체 기간';
+  if (prioritySelect) prioritySelect.value = '전체 우선순위';
+  sortBtn.querySelector('p').textContent = '정렬: 오름차순↑';
 
   applyFilterAndSort();
 };
 
 // [10. 이벤트 리스너]
-searchInput?.addEventListener("input", (e) => {
+searchInput?.addEventListener('input', (e) => {
   currentFilters.search = e.target.value.toLowerCase();
   applyFilterAndSort();
 });
 
-termSelect?.addEventListener("change", (e) => {
+termSelect?.addEventListener('change', (e) => {
   currentFilters.term = e.target.value;
   applyFilterAndSort();
 });
 
-prioritySelect?.addEventListener("change", (e) => {
+prioritySelect?.addEventListener('change', (e) => {
   currentFilters.priority = e.target.value;
   applyFilterAndSort();
 });
 
-sortBtn?.addEventListener("click", () => {
-  currentFilters.sortOrder =
-    currentFilters.sortOrder === "asc" ? "desc" : "asc";
-  sortBtn.querySelector("p").textContent =
-    currentFilters.sortOrder === "asc" ? "정렬: 오름차순↑" : "정렬: 내림차순↓";
+sortBtn?.addEventListener('click', () => {
+  currentFilters.sortOrder = currentFilters.sortOrder === 'asc' ? 'desc' : 'asc';
+  sortBtn.querySelector('p').textContent =
+    currentFilters.sortOrder === 'asc' ? '정렬: 오름차순↑' : '정렬: 내림차순↓';
   applyFilterAndSort();
 });
 
 // [11. 모달 및 저장 로직]
-document.addEventListener("DOMContentLoaded", () => {
-  const modal = document.querySelector(".modal");
-  const addBtn = document.querySelector(".Add");
-  const cancelBtn = document.querySelector(".modal-cancel");
-  const saveBtn = document.querySelector(".modal-save");
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.querySelector('.modal');
+  const addBtn = document.querySelector('.Add');
+  const cancelBtn = document.querySelector('.modal-cancel');
+  const saveBtn = document.querySelector('.modal-save');
   const titleInput = document.querySelector(".modal-popup input[type='text']");
-  const contentInput = document.querySelector(".modal-content-input");
-  const statusSelect = document.querySelector(".modal-todo-list");
-  const priorityButtons = document.querySelectorAll(".modal-priority button");
+  const contentInput = document.querySelector('.modal-content-input');
+  const statusSelect = document.querySelector('.modal-todo-list');
+  const priorityButtons = document.querySelectorAll('.modal-priority button');
 
-  let selectedPriority = "중간";
+  let selectedPriority = '중간';
 
-  addBtn?.addEventListener("click", () => (modal.style.display = "flex"));
-  cancelBtn?.addEventListener("click", () => closeModal());
+  addBtn?.addEventListener('click', () => (modal.style.display = 'flex'));
+  cancelBtn?.addEventListener('click', () => closeModal());
 
   function closeModal() {
-    modal.style.display = "none";
-    titleInput.value = "";
-    contentInput.value = "";
-    priorityButtons.forEach((btn) => btn.classList.remove("active"));
-    priorityButtons[1].classList.add("active");
-    selectedPriority = "중간";
+    modal.style.display = 'none';
+    titleInput.value = '';
+    contentInput.value = '';
+    priorityButtons.forEach((btn) => btn.classList.remove('active'));
+    priorityButtons[1].classList.add('active');
+    selectedPriority = '중간';
   }
 
   priorityButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      priorityButtons.forEach((btn) => btn.classList.remove("active"));
-      button.classList.add("active");
+    button.addEventListener('click', () => {
+      priorityButtons.forEach((btn) => btn.classList.remove('active'));
+      button.classList.add('active');
       selectedPriority = button.dataset.priority;
     });
   });
 
-  saveBtn?.addEventListener("click", () => {
-    if (!titleInput.value.trim()) return alert("제목을 입력해주세요!");
+  saveBtn?.addEventListener('click', () => {
+    if (!titleInput.value.trim()) return alert('제목을 입력해주세요!');
 
     const newTodo = {
       id: Date.now(),
       title: titleInput.value,
       content: contentInput.value,
       status:
-        statusSelect.value === "할 일"
-          ? "To Do"
-          : statusSelect.value === "진행 중"
-            ? "In Progress"
-            : "Done",
+        statusSelect.value === '할 일'
+          ? 'To Do'
+          : statusSelect.value === '진행 중'
+            ? 'In Progress'
+            : 'Done',
       priority: selectedPriority,
     };
 
