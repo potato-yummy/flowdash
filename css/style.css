@@ -19,16 +19,6 @@ body.dark-mode {
   --input-bg: #2c2c2c;
 }
 
-body {
-  background-color: var(--bg-main);
-  color: var(--text-main);
-  display: flex;
-  justify-content: center;
-  height: 100vh;
-  transition:
-    background-color 0.3s,
-    color 0.3s;
-}
 
 .to-do-list-container {
   width: 100%;
