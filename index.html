@@ -23,79 +23,79 @@
       </div>
     </div>
     <!--  전체 앱 컨테이너 -->
-    <div class="To-Do-List-Container">
+    <div class="to-do-list-container">
       <!-- 인삿말 / 닉네임 -->
-      <div class="Greeting-Nickname-Mode-container">
-        <div class="Greeting-Nickname">
+      <div class="greeting-nickname-mode-container">
+        <div class="greeting-nickname">
           <h1>
             <span id="greeting-message">좋은 아침이에요</span>,
             <span class="nickname">nickname</span>님
           </h1>
           <p id="today-date">2026년 00월 00일</p>
         </div>
-        <button class="Mode">
+        <button class="mode">
           <span>🌙</span>
         </button>
       </div>
 
-      <div class="Dashboard-container">
-        <div class="Total-Tasks">
+      <div class="dashboard-container">
+        <div class="total.tasks">
           <h3>Total Tasks</h3>
           <p>0</p>
         </div>
-        <div class="To-Do">
+        <div class="to-do">
           <h3>To Do</h3>
           <p>0</p>
         </div>
-        <div class="In-Progress">
+        <div class="in-progress">
           <h3>In Progress</h3>
           <p>0</p>
         </div>
-        <div class="Done">
-          <h3>Done</h3>
+        <div class="done">
+          <h3>done</h3>
           <p>0</p>
         </div>
-        <div class="Achievement">
-          <h3>Achievement</h3>
+        <div class="achievement">
+          <h3>achievement</h3>
           <p>-</p>
         </div>
       </div>
 
       <!-- 검색 & 필터 -->
-      <div class="Search-container">
-        <div class="To-Do-Search">
+      <div class="search-container">
+        <div class="to-do-search">
           <input type="text" placeholder="할 일 검색..." />
           <span class="search-icon"></span>
         </div>
 
-        <select class="Term">
+        <select class="term">
           <option>전체 기간</option>
           <option>오늘</option>
           <option>최근 7일</option>
         </select>
 
-        <select class="Priority">
+        <select class="priority">
           <option>전체 우선순위</option>
           <option>높음</option>
           <option>중간</option>
           <option>낮음</option>
         </select>
 
-        <div class="Array">
+        <div class="array">
           <p>정렬: 오름차순↑</p>
         </div>
 
-        <button class="Add">+ 새 할 일</button>
+        <button class="add">+ 새 할 일</button>
       </div>
 
       <!-- 활성 필터 표시 -->
-      <div class="Active-Filters-container">
+      <div class="active-filters-container">
         <div id="filter-status-tags" class="filter-tags"></div>
         <button class="reset-all-btn" onclick="resetFilters()">전체 데이터 초기화</button>
       </div>
 
       <!-- 칸반 보드 -->
-      <div class="To-Do-container kanban-board">
+      <div class="to-do-container kanban-board">
         <div class="column todo">
           <h3>할 일</h3>
           <div class="card-list" id="todo-list"></div>
@@ -137,7 +137,7 @@
             <button class="modal-save">저장하기</button>
           </div>
         </div>
-        <button class="Mode">
+        <button class="mode">
           <p>모드 설정 아이콘</p>
         </button>
       </div>

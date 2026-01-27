@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const modeBtn = document.querySelector('.Mode');
+  const modeBtn = document.querySelector('.mode');
   const body = document.body;
 
   if (!modeBtn) return;

@@ -10,10 +10,10 @@ const currentFilters = {
 };
 
 // [3. DOM 요소 가져오기]
-const searchInput = document.querySelector('.To-Do-Search input');
-const termSelect = document.querySelector('.Term');
-const prioritySelect = document.querySelector('.Priority');
-const sortBtn = document.querySelector('.Array');
+const searchInput = document.querySelector('.to-do-search input');
+const termSelect = document.querySelector('.term');
+const prioritySelect = document.querySelector('.priority');
+const sortBtn = document.querySelector('.array');
 const todoColumn = document.querySelector('#todo-list');
 const progressColumn = document.querySelector('#progress-list');
 const doneColumn = document.querySelector('#done-list');
@@ -36,21 +36,21 @@ function applyFilterAndSort() {
       item.content.toLowerCase().includes(currentFilters.search);
 
     // 우선순위 필터
-    const matchesPriority =
+    const matchespriority =
       currentFilters.priority === '전체 우선순위' || item.priority === currentFilters.priority;
 
     // 기간 필터 로직
-    let matchesTerm = true;
+    let matchesterm = true;
     if (currentFilters.term === '오늘') {
       const today = new Date().toISOString().split('T')[0];
       const itemDate = new Date(item.id).toISOString().split('T')[0];
-      matchesTerm = today === itemDate;
+      matchesterm = today === itemDate;
     } else if (currentFilters.term === '최근 7일') {
       const sevenDaysAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
-      matchesTerm = item.id >= sevenDaysAgo;
+      matchesterm = item.id >= sevenDaysAgo;
     }
 
-    return matchesSearch && matchesPriority && matchesTerm;
+    return matchesSearch && matchespriority && matchesterm;
   });
 
   // 2) 정렬 로직
@@ -69,14 +69,14 @@ function updateDashboard(data) {
   const total = data.length;
   const todoCount = data.filter((item) => item.status === 'To Do').length;
   const progressCount = data.filter((item) => item.status === 'In Progress').length;
-  const doneCount = data.filter((item) => item.status === 'Done').length;
+  const doneCount = data.filter((item) => item.status === 'done').length;
   const achievement = total === 0 ? 0 : Math.round((doneCount / total) * 100);
 
-  document.querySelector('.Total-Tasks p').textContent = total;
-  document.querySelector('.To-Do p').textContent = todoCount;
-  document.querySelector('.In-Progress p').textContent = progressCount;
-  document.querySelector('.Done p').textContent = doneCount;
-  document.querySelector('.Achievement p').textContent = total === 0 ? '-' : `${achievement}%`;
+  document.querySelector('.total.tasks p').textContent = total;
+  document.querySelector('.to-do p').textContent = todoCount;
+  document.querySelector('.in-progress p').textContent = progressCount;
+  document.querySelector('.done p').textContent = doneCount;
+  document.querySelector('.achievement p').textContent = total === 0 ? '-' : `${achievement}%`;
 }
 
 // [7. 칸반 보드 렌더링]
@@ -97,7 +97,7 @@ function renderKanban(items) {
     const card = document.createElement('div');
     card.className = 'todo-card';
 
-    if (item.status === 'Done') {
+    if (item.status === 'done') {
       card.classList.add('is-done');
     }
 
@@ -112,7 +112,7 @@ function renderKanban(items) {
 
     if (item.status === 'To Do') todoColumn.appendChild(card);
     else if (item.status === 'In Progress') progressColumn.appendChild(card);
-    else if (item.status === 'Done') doneColumn.appendChild(card);
+    else if (item.status === 'done') doneColumn.appendChild(card);
   });
 }
 
@@ -181,7 +181,7 @@ sortBtn?.addEventListener('click', () => {
 // [11. 모달 및 저장 로직]
 document.addEventListener('DOMContentLoaded', () => {
   const modal = document.querySelector('.modal');
-  const addBtn = document.querySelector('.Add');
+  const addBtn = document.querySelector('.add');
   const cancelBtn = document.querySelector('.modal-cancel');
   const saveBtn = document.querySelector('.modal-save');
   const titleInput = document.querySelector(".modal-popup input[type='text']");
@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const statusSelect = document.querySelector('.modal-todo-list');
   const priorityButtons = document.querySelectorAll('.modal-priority button');
 
-  let selectedPriority = '중간';
+  let selectedpriority = '중간';
 
   addBtn?.addEventListener('click', () => (modal.style.display = 'flex'));
   cancelBtn?.addEventListener('click', () => closeModal());
@@ -200,14 +200,14 @@ document.addEventListener('DOMContentLoaded', () => {
     contentInput.value = '';
     priorityButtons.forEach((btn) => btn.classList.remove('active'));
     priorityButtons[1].classList.add('active');
-    selectedPriority = '중간';
+    selectedpriority = '중간';
   }
 
   priorityButtons.forEach((button) => {
     button.addEventListener('click', () => {
       priorityButtons.forEach((btn) => btn.classList.remove('active'));
       button.classList.add('active');
-      selectedPriority = button.dataset.priority;
+      selectedpriority = button.dataset.priority;
     });
   });
 
@@ -223,8 +223,8 @@ document.addEventListener('DOMContentLoaded', () => {
           ? 'To Do'
           : statusSelect.value === '진행 중'
             ? 'In Progress'
-            : 'Done',
-      priority: selectedPriority,
+            : 'done',
+      priority: selectedpriority,
     };
 
     todoList.push(newTodo);
