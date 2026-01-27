@@ -775,11 +775,7 @@ body {
   padding: 0 20px;
 }
 
-body {
-  display: block;
-  margin: 0;
-  min-height: 100vh;
-}
+
 .col {
   display: flex;
   flex-direction: column;
@@ -796,6 +792,3 @@ body {
   min-height: 340px;
 }
 
-.To-Do-List-Container {
-  margin: 0 auto;
-}
