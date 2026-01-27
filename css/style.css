@@ -807,7 +807,7 @@ body {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.dashboard-container:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-}
+
+
+
+
