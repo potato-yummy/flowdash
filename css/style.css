@@ -1,8 +1,33 @@
+:root {
+  --bg-main: #f6f7fa;
+  --bg-card: #ffffff;
+  --bg-kanban: #f1f2f5;
+  --text-main: #333333;
+  --text-sub: #79899b;
+  --border: #eeeeee;
+  --input-bg: #ffffff;
+  --accent: #4d53eb;
+}
+
+body.dark-mode {
+  --bg-main: #121212;
+  --bg-card: #1e1e1e;
+  --bg-kanban: #252525;
+  --text-main: #e0e0e0;
+  --text-sub: #a0a0a0;
+  --border: #333333;
+  --input-bg: #2c2c2c;
+}
+
 body {
-  background-color: #f6f7fa;
+  background-color: var(--bg-main);
+  color: var(--text-main);
   display: flex;
   justify-content: center;
   height: 100vh;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 }
 
 .To-Do-List-Container {
@@ -11,8 +36,65 @@ body {
   max-width: 1200px;
 }
 
+.nickname-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.nickname-setting-container {
+  width: 500px;
+  height: 300px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background-color: var(--bg-card);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+
+.welcome {
+  text-align: center;
+}
+
+input {
+  width: 280px;
+  height: 35px;
+  padding: 0 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+}
+
+input:focus {
+  border-color: #5f42f0;
+}
+
+.login-btn {
+  width: 60px;
+  height: 35px;
+  border-radius: 5px;
+  background-color: #5f42f0;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
 .Greeting-Nickname-Mode-container {
-  background-color: #ffffff;
+  background-color: var(--bg-card);
   padding: 20px 30px;
   border-radius: 20px;
   display: flex;
@@ -29,21 +111,34 @@ body {
 }
 
 .nickname {
-  color: #4d53eb;
+  color: var(--accent);
 }
 
 .Greeting-Nickname p {
   font-size: 15px;
-  color: #79899b;
+  color: var(--text-sub);
   margin-top: 6px;
+}
+
+.nickname-edit-input {
+  font-size: inherit;
+  font-weight: inherit;
+  color: #4d53eb;
+  border: none;
+  border-bottom: 2px solid #4d53eb;
+  background: transparent;
+  outline: none;
+  width: 120px;
+  padding: 0;
+  margin: 0;
 }
 
 .Mode {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 1px solid #eee;
-  background-color: #ffffff;
+  border: 1px solid var(--border);
+  background-color: var(--bg-card);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -58,7 +153,7 @@ body {
 }
 
 .Dashboard-container > div {
-  background-color: #ffffff;
+  background-color: var(--bg-card);
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
@@ -66,7 +161,7 @@ body {
 
 .Dashboard-container h3 {
   font-size: 16px;
-  color: #9ba9ba;
+  color: var(--text-sub);
   margin-bottom: 5px;
   font-weight: 600;
 }
@@ -77,7 +172,7 @@ body {
 }
 
 .Search-container {
-  background-color: #ffffff;
+  background-color: var(--bg-card);
   padding: 15px 25px;
   border-radius: 15px;
   display: flex;
@@ -124,7 +219,7 @@ body {
   padding: 10px 15px;
   border: 1px solid #eee;
   border-radius: 10px;
-  background-color: #ffffff;
+  background-color: var(--bg-card);
   font-size: 14px;
   color: #79899b;
   cursor: pointer;
@@ -133,7 +228,7 @@ body {
 .Add {
   flex: 1;
   background-color: #4d53eb;
-  color: #ffffff;
+  color: var(--bg-card);
   border: none;
   padding: 12px;
   border-radius: 10px;
@@ -148,7 +243,7 @@ body {
 }
 
 .To-Do-container > div {
-  background-color: #f1f2f5;
+  background-color: var(--bg-kanban);
   border-radius: 15px;
   padding: 24px;
   min-height: 450px;
@@ -178,7 +273,7 @@ body {
 
 .footer p {
   font-size: 14px;
-  color: #9ba9ba;
+  color: var(--text-sub);
   letter-spacing: -0.5px;
   font-weight: bold;
 }
@@ -197,7 +292,7 @@ body {
 }
 
 .filter-chip {
-  background-color: #f0f2ff;
+  background-color: var(--bg-card);
   color: #4d53eb;
   padding: 5px 12px;
   border-radius: 20px;
@@ -224,7 +319,7 @@ body {
 }
 
 .todo-card {
-  background: #ffffff;
+  background: var(--bg-card);
   border-radius: 16px;
   padding: 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -255,7 +350,7 @@ body {
   align-items: center;
   gap: 6px;
   font-size: 12px;
-  color: #b2bec3;
+  color: var(--text-sub);
   border-top: 1px solid #f1f2f5;
   padding-top: 12px;
 }
@@ -269,7 +364,7 @@ body {
 }
 
 .todo-card.is-done {
-  background-color: #f2f4f5;
+  background-color: var(--bg-card);
   border: 1px solid #e0e0e0;
 }
 
@@ -283,15 +378,15 @@ body {
 }
 
 .p-높음 {
-  background: #fff0f0;
+  background: var(--bg-card);
   color: #ff4d4d;
 }
 .p-중간 {
-  background: #fff7eb;
+  background: var(--bg-card);
   color: #ff9f1c;
 }
 .p-낮음 {
-  background: #edfaf2;
+  background: var(--bg-card);
   color: #2ecc71;
 }
 
@@ -311,7 +406,7 @@ body {
 }
 
 .modal-popup {
-  background-color: #ffffff;
+  background-color: var(--bg-card);
   padding: 30px;
   border-radius: 20px;
   width: 450px;
@@ -408,4 +503,16 @@ body {
 .modal-cancel {
   border: none;
   cursor: pointer;
+}
+
+input,
+select,
+textarea,
+.Term,
+.Priority,
+.Array,
+.Mode {
+  background-color: var(--input-bg);
+  color: var(--text-main);
+  border: 1px solid var(--border);
 }
