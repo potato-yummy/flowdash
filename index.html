@@ -171,22 +171,31 @@
       </div>
 
       <!-- 칸반 보드 -->
-      <div class="to-do-container kanban-board">
-        <div class="column todo">
-          <h3>할 일</h3>
-          <div class="card-list" id="todo-list"></div>
+      <section class="board">
+        <div class="col">
+          <div class="col-head">
+            <h3>할 일</h3>
+            <span class="badge">0</span>
+          </div>
+          <p class="empty">할 일이 없습니다</p>
         </div>
 
-        <div class="column progress">
-          <h3>진행 중</h3>
-          <div class="card-list" id="progress-list"></div>
+        <div class="col">
+          <div class="col-head">
+            <h3>진행 중</h3>
+            <span class="badge">0</span>
+          </div>
+          <p class="empty">진행 중인 일이 없습니다</p>
         </div>
 
-        <div class="column done">
-          <h3>완료</h3>
-          <div class="card-list" id="done-list"></div>
+        <div class="col">
+          <div class="col-head">
+            <h3>완료</h3>
+            <span class="badge">0</span>
+          </div>
+          <p class="empty">완료된 일이 없습니다</p>
         </div>
-      </div>
+      </section>
 
       <!-- 모달 팝업 -->
       <div class="modal">
@@ -241,33 +250,11 @@
         </div>
 
         <h4>상태</h4>
-        
-      
-         <section class="board">
-        <div class="col">
-          <div class="col-head">
-            <h3>할 일</h3>
-            <span class="badge">0</span>
-          </div>
-          <p class="empty">할 일이 없습니다</p>
-        </div>
-
-        <div class="col">
-          <div class="col-head">
-            <h3>진행 중</h3>
-            <span class="badge">0</span>
-          </div>
-          <p class="empty">진행 중인 일이 없습니다</p>
-        </div>
-
-        <div class="col">
-          <div class="col-head">
-            <h3>완료</h3>
-            <span class="badge">0</span>
-          </div>
-          <p class="empty">완료된 일이 없습니다</p>
-        </div>
-      </section>
+        <select class="modal-todo-list">
+          <option>할 일</option>
+          <option>진행 중</option>
+          <option>완료</option>
+        </select>
 
         <div class="modal-contract">
           <button class="modal-cancel">취소</button>
