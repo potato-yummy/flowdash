@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <div class="To-Do-List-Container">
@@ -58,17 +58,31 @@
           <p>+ 새 할 일</p>
         </button>
       </div>
-      <div class="To-Do-container">
-        <div class="To-Do-List">
-          <p>할 일</p>
+      <section class="board">
+        <div class="col">
+          <div class="col-head">
+            <h3>할 일</h3>
+            <span class="badge">0</span>
+          </div>
+          <p class="empty">할 일이 없습니다</p>
         </div>
-        <div class="In-Progress-List">
-          <p>진행 중</p>
+
+        <div class="col">
+          <div class="col-head">
+            <h3>진행 중</h3>
+            <span class="badge">0</span>
+          </div>
+          <p class="empty">진행 중인 일이 없습니다</p>
         </div>
-        <div class="Done-List">
-          <p>완료</p>
+
+        <div class="col">
+          <div class="col-head">
+            <h3>완료</h3>
+            <span class="badge">0</span>
+          </div>
+          <p class="empty">완료된 일이 없습니다</p>
         </div>
-      </div>
+      </section>
     </div>
   </body>
 </html>
