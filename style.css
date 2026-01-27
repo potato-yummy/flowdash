@@ -175,11 +175,15 @@ body {
 body {
   margin: 0;
   padding: 40px;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  font-family:
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial;
   background: var(--bg);
   color: var(--text);
 }
-
 
 .board {
   max-width: 1400px;
@@ -189,7 +193,6 @@ body {
   gap: 24px;
 }
 
-
 .col {
   background: var(--card);
   border: 1px solid var(--line);
@@ -198,8 +201,10 @@ body {
   padding: 16px;
   min-height: 260px;
 
-  
-  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
   transform: translateY(0);
 }
 
@@ -215,7 +220,6 @@ body {
   box-shadow: 0 14px 36px rgba(0, 0, 0, 0.12);
   border-color: rgba(37, 99, 235, 0.35);
 }
-
 
 .col:active {
   transform: translateY(-2px);
@@ -234,7 +238,6 @@ body {
   font-size: 15px;
 }
 
-
 .badge {
   min-width: 26px;
   height: 22px;
@@ -247,7 +250,9 @@ body {
   align-items: center;
   justify-content: center;
 
-  transition: transform 180ms ease, border-color 180ms ease;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease;
 }
 
 .col:hover .badge {
@@ -255,30 +260,29 @@ body {
   border-color: rgba(37, 99, 235, 0.35);
 }
 
-
 .empty {
   margin-top: 16px;
   font-size: 13px;
   color: var(--muted);
 }
-.To-Do-List-Container{
+.To-Do-List-Container {
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 20px; 
+  padding: 0 20px;
 }
 
-body{
+body {
   display: block;
   margin: 0;
   min-height: 100vh;
 }
-.col{
+.col {
   display: flex;
   flex-direction: column;
 }
 
-.empty{
+.empty {
   flex: 1;
   display: flex;
   justify-content: center;
@@ -286,6 +290,5 @@ body{
   text-align: tocer;
 }
 .col {
-  min-height: 340px;}
-
-  
+  min-height: 340px;
+}
