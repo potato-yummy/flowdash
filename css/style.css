@@ -795,3 +795,7 @@ body {
 .col {
   min-height: 340px;
 }
+
+To-Do-List-Container {
+  margin: 0 auto;
+}
