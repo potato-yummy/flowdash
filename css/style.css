@@ -811,24 +811,3 @@ body {
   transform: translateY(-4px);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
 }
-.dashboard-container,
-.Dashboard-container {
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  border-radius: 16px;
-}
-
-.dashboard-container:hover,
-.Dashboard-container:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-}
-
-.dashboard-container > div,
-.Dashboard-container > div {
-  transition: transform 0.25s ease;
-}
-
-.dashboard-container:hover > div,
-.Dashboard-container:hover > div {
-  transform: translateY(-2px);
-}
