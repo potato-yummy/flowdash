@@ -792,3 +792,13 @@ body {
   min-height: 340px;
 }
 
+body {
+  margin: 0;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.To-Do-List-Container {
+  width: 100% !important;
+  max-width: 1200px !important;
+}
