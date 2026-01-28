@@ -590,3 +590,265 @@ textarea,
     align-items: center;
   }
 }
+<<<<<<< HEAD .board {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.col {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 16px;
+  min-height: 260px;
+
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+  transform: translateY(0);
+}
+
+.col:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.12);
+  border-color: rgba(37, 99, 235, 0.25);
+}
+
+.col:focus-within {
+  outline: none;
+  transform: translateY(-6px);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.12);
+  border-color: rgba(37, 99, 235, 0.35);
+}
+
+.col:active {
+  transform: translateY(-2px);
+}
+
+.col-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.col-head h3 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.badge {
+  min-width: 26px;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  font-size: 12px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease;
+}
+
+.col:hover .badge {
+  transform: scale(1.05);
+  border-color: rgba(37, 99, 235, 0.35);
+}
+
+.empty {
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+:root {
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --line: #e5e7eb;
+  --primary: #2563eb;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 40px;
+  font-family:
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.board {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.col {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 16px;
+  min-height: 260px;
+
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+  transform: translateY(0);
+}
+
+.col:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.12);
+  border-color: rgba(37, 99, 235, 0.25);
+}
+
+.col:focus-within {
+  outline: none;
+  transform: translateY(-6px);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.12);
+  border-color: rgba(37, 99, 235, 0.35);
+}
+
+.col:active {
+  transform: translateY(-2px);
+}
+
+.col-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.col-head h3 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.badge {
+  min-width: 26px;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  font-size: 12px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease;
+}
+
+.col:hover .badge {
+  transform: scale(1.05);
+  border-color: rgba(37, 99, 235, 0.35);
+}
+
+.empty {
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.board > .col {
+  background-color: #f3f4f6;
+}
+.board .col {
+  background-color: #c6c6c6;
+}
+
+column,
+.kanban-col,
+.kanban-column,
+.list,
+.list-col {
+  background: #f3f4f6 !important;
+}
+.To-Do-List-Container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.empty {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: tocer;
+}
+.col {
+  min-height: 340px;
+}
+
+body {
+  margin: 0;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.To-Do-List-Container {
+  width: 100% !important;
+  max-width: 1200px !important;
+}
+
+.dashboard-container {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.dashboard-container:hover,
+.Dashboard-container:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.dashboard-container > div,
+.Dashboard-container > div {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.dashboard-container > div:hover,
+.Dashboard-container > div:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
