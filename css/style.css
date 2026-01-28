@@ -218,8 +218,6 @@ input:focus {
   cursor: pointer;
 }
 
-.term,
-.priority,
 .array {
   padding: 10px 15px;
   border: 1px solid #eee;
@@ -228,6 +226,38 @@ input:focus {
   font-size: 14px;
   color: #79899b;
   cursor: pointer;
+}
+
+.term,
+.priority {
+  padding: 10px 35px 10px 15px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background-color: var(--input-bg);
+  font-size: 14px;
+  color: var(--text-sub);
+  cursor: pointer;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2379899b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 14px;
+
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+  min-width: 110px;
+}
+
+.term:focus,
+.priority:focus {
+  border-color: var(--accent);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(77, 83, 235, 0.1);
 }
 
 .add {
