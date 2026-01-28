@@ -1,6 +1,12 @@
 // [1. 데이터 중앙 관리]
 let todoList = [];
 
+const STATUS_MAP = {
+  '할 일': 'to do',
+  '진행 중': 'in progress',
+  완료: 'done',
+};
+
 // [2. 필터 및 정렬 상태 관리 (Global State)]
 const currentFilters = {
   search: '',
@@ -67,8 +73,8 @@ function applyFilterAndSort() {
 // [6. 통계 업데이트]
 function updateDashboard(data) {
   const total = data.length;
-  const todoCount = data.filter((item) => item.status === 'To Do').length;
-  const progressCount = data.filter((item) => item.status === 'In Progress').length;
+  const todoCount = data.filter((item) => item.status === 'to do').length;
+  const progressCount = data.filter((item) => item.status === 'in progress').length;
   const doneCount = data.filter((item) => item.status === 'done').length;
   const achievement = total === 0 ? 0 : Math.round((doneCount / total) * 100);
 
@@ -110,8 +116,8 @@ function renderKanban(items) {
       <div class="card-footer">${new Date(item.id).toLocaleString()}</div>
     `;
 
-    if (item.status === 'To Do') todoColumn.appendChild(card);
-    else if (item.status === 'In Progress') progressColumn.appendChild(card);
+    if (item.status === 'to do') todoColumn.appendChild(card);
+    else if (item.status === 'in progress') progressColumn.appendChild(card);
     else if (item.status === 'done') doneColumn.appendChild(card);
   });
 }
@@ -218,12 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
       id: Date.now(),
       title: titleInput.value,
       content: contentInput.value,
-      status:
-        statusSelect.value === '할 일'
-          ? 'To Do'
-          : statusSelect.value === '진행 중'
-            ? 'In Progress'
-            : 'done',
+      status: STATUS_MAP[statusSelect.value] || 'to do',
       priority: selectedpriority,
     };
 
