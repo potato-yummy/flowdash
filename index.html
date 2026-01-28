@@ -106,17 +106,26 @@
 
       <div class="to-do-container kanban-board">
         <div class="column todo">
-          <h3>할 일</h3>
+          <div class="column-header">
+            <h3>할 일</h3>
+            <span class="badge" id="todo-count">0</span>
+          </div>
           <div class="card-list" id="todo-list"></div>
         </div>
 
         <div class="column progress">
-          <h3>진행 중</h3>
+          <div class="column-header">
+            <h3>진행 중</h3>
+            <span class="badge" id="progress-count">0</span>
+          </div>
           <div class="card-list" id="progress-list"></div>
         </div>
 
         <div class="column done">
-          <h3>완료</h3>
+          <div class="column-header">
+            <h3>완료</h3>
+            <span class="badge" id="done-count">0</span>
+          </div>
           <div class="card-list" id="done-list"></div>
         </div>
       </div>
@@ -158,5 +167,6 @@
     <script src="js/header.js" defer></script>
     <script src="js/dashboard.js" defer></script>
     <script src="js/darkmode.js" defer></script>
+    <script src="js/number.js" defer></script>
   </body>
 </html>

@@ -7,6 +7,8 @@
   --border: #eeeeee;
   --input-bg: #ffffff;
   --accent: #4d53eb;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-strong: 0 14px 36px rgba(0, 0, 0, 0.12);
 }
 
 body.dark-mode {
@@ -17,6 +19,8 @@ body.dark-mode {
   --text-sub: #a0a0a0;
   --border: #333333;
   --input-bg: #2c2c2c;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  --shadow-strong: 0 14px 36px rgba(0, 0, 0, 0.4);
 }
 
 body {
@@ -263,7 +267,7 @@ input:focus {
 .add {
   flex: 1;
   background-color: #4d53eb;
-  color: #e0e0e0;
+  color: #ffffff;
   border: none;
   padding: 12px;
   border-radius: 10px;
@@ -370,7 +374,7 @@ input:focus {
   font-size: 16px;
   font-weight: 700;
   margin: 12px 0 8px 0;
-  color: #2d3436;
+  color: var(--text-main);
 }
 
 .todo-card p {
@@ -449,13 +453,34 @@ input:focus {
 
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
 }
 
 .modal-popup h4 {
   font-size: 14px;
   font-weight: 600;
-  margin-bottom: -5px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.modal-todo-list {
+  width: 100%;
+  padding: 12px 35px 12px 15px;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  outline: none;
+  font-size: 14px;
+  background-color: var(--input-bg);
+  cursor: pointer;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2379899b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 14px;
 }
 
 .modal-popup input[type='text'],
@@ -569,8 +594,54 @@ textarea,
 
 .card-header {
   display: flex;
-  justify-content: space-between; /* 태그는 왼쪽, 버튼은 오른쪽 */
+  justify-content: space-between;
   align-items: center;
+}
+
+.column {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 16px;
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.column:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-strong);
+  border-color: var(--accent);
+}
+
+.column-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--text-main);
+  margin-bottom: 16px;
+  color: var(--text-main);
+}
+
+.badge {
+  min-width: 28px;
+  height: 24px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background-color: var(--input-bg);
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
 }
 
 /* 반응형 */
