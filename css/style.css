@@ -369,7 +369,6 @@ input:focus {
 
 .todo-card.is-done {
   background-color: var(--bg-card);
-  border: 1px solid #e0e0e0;
 }
 
 .todo-card.is-done h4 {
