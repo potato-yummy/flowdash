@@ -72,7 +72,7 @@ function updateDashboard(data) {
   const doneCount = data.filter((item) => item.status === 'done').length;
   const achievement = total === 0 ? 0 : Math.round((doneCount / total) * 100);
 
-  document.querySelector('.total.tasks p').textContent = total;
+  document.querySelector('.total-tasks p').textContent = total;
   document.querySelector('.to-do p').textContent = todoCount;
   document.querySelector('.in-progress p').textContent = progressCount;
   document.querySelector('.done p').textContent = doneCount;
