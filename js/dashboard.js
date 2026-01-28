@@ -122,6 +122,39 @@ function renderKanban(items) {
   });
 }
 
+function renderKanban(items) {
+  todoColumn.innerHTML = '';
+  progressColumn.innerHTML = '';
+  doneColumn.innerHTML = '';
+
+  if (items.length === 0) {
+    todoColumn.innerHTML = `<p class="empty-msg">할 일이 없습니다</p>`;
+    progressColumn.innerHTML = `<p class="empty-msg">진행 중인 일이 없습니다</p>`;
+    doneColumn.innerHTML = `<p class="empty-msg">완료된 일이 없습니다</p>`;
+    return;
+  }
+
+  items.forEach((item) => {
+    const card = document.createElement('div');
+    card.className = 'todo-card';
+    if (item.status === 'done') card.classList.add('is-done');
+
+    card.innerHTML = `
+      <div class="card-header">
+        <span class="priority-tag p-${item.priority}">${item.priority}</span>
+        <button class="delete-btn" onclick="deleteTodo(${item.id})">×</button>
+      </div>
+      <h4>${item.title}</h4>
+      <p>${item.content}</p>
+      <div class="card-footer">${new Date(item.id).toLocaleString()}</div>
+    `;
+
+    if (item.status === 'to do') todoColumn.appendChild(card);
+    else if (item.status === 'in progress') progressColumn.appendChild(card);
+    else if (item.status === 'done') doneColumn.appendChild(card);
+  });
+}
+
 // [8. 필터 칩 렌더링]
 function renderFilterChips() {
   const container = document.querySelector('#filter-status-tags');
@@ -159,6 +192,13 @@ window.resetFilters = function () {
   sortBtn.querySelector('p').textContent = '정렬: 오름차순↑';
 
   applyFilterAndSort();
+};
+
+window.deleteTodo = function (id) {
+  if (confirm('이 항목을 삭제하시겠습니까?')) {
+    todoList = todoList.filter((item) => item.id !== id);
+    applyFilterAndSort();
+  }
 };
 
 // [10. 이벤트 리스너]
