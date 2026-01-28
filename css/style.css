@@ -232,7 +232,7 @@ input:focus {
 .add {
   flex: 1;
   background-color: #4d53eb;
-  color: var(--bg-card);
+  color: #e0e0e0;
   border: none;
   padding: 12px;
   border-radius: 10px;
@@ -505,6 +505,7 @@ input:focus {
 }
 
 .modal-cancel {
+  color: var(--text-main);
   border: none;
   cursor: pointer;
 }
