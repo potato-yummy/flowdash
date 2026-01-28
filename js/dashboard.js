@@ -1,6 +1,12 @@
 // [1. 데이터 중앙 관리]
 let todoList = [];
 
+const STATUS_MAP = {
+  '할 일': 'to do',
+  '진행 중': 'in progress',
+  완료: 'done',
+};
+
 // [2. 필터 및 정렬 상태 관리 (Global State)]
 const currentFilters = {
   search: '',
@@ -67,12 +73,12 @@ function applyFilterAndSort() {
 // [6. 통계 업데이트]
 function updateDashboard(data) {
   const total = data.length;
-  const todoCount = data.filter((item) => item.status === 'To Do').length;
-  const progressCount = data.filter((item) => item.status === 'In Progress').length;
+  const todoCount = data.filter((item) => item.status === 'to do').length;
+  const progressCount = data.filter((item) => item.status === 'in progress').length;
   const doneCount = data.filter((item) => item.status === 'done').length;
   const achievement = total === 0 ? 0 : Math.round((doneCount / total) * 100);
 
-  document.querySelector('.total.tasks p').textContent = total;
+  document.querySelector('.total-tasks p').textContent = total;
   document.querySelector('.to-do p').textContent = todoCount;
   document.querySelector('.in-progress p').textContent = progressCount;
   document.querySelector('.done p').textContent = doneCount;
@@ -110,8 +116,41 @@ function renderKanban(items) {
       <div class="card-footer">${new Date(item.id).toLocaleString()}</div>
     `;
 
-    if (item.status === 'To Do') todoColumn.appendChild(card);
-    else if (item.status === 'In Progress') progressColumn.appendChild(card);
+    if (item.status === 'to do') todoColumn.appendChild(card);
+    else if (item.status === 'in progress') progressColumn.appendChild(card);
+    else if (item.status === 'done') doneColumn.appendChild(card);
+  });
+}
+
+function renderKanban(items) {
+  todoColumn.innerHTML = '';
+  progressColumn.innerHTML = '';
+  doneColumn.innerHTML = '';
+
+  if (items.length === 0) {
+    todoColumn.innerHTML = `<p class="empty-msg">할 일이 없습니다</p>`;
+    progressColumn.innerHTML = `<p class="empty-msg">진행 중인 일이 없습니다</p>`;
+    doneColumn.innerHTML = `<p class="empty-msg">완료된 일이 없습니다</p>`;
+    return;
+  }
+
+  items.forEach((item) => {
+    const card = document.createElement('div');
+    card.className = 'todo-card';
+    if (item.status === 'done') card.classList.add('is-done');
+
+    card.innerHTML = `
+      <div class="card-header">
+        <span class="priority-tag p-${item.priority}">${item.priority}</span>
+        <button class="delete-btn" onclick="deleteTodo(${item.id})">×</button>
+      </div>
+      <h4>${item.title}</h4>
+      <p>${item.content}</p>
+      <div class="card-footer">${new Date(item.id).toLocaleString()}</div>
+    `;
+
+    if (item.status === 'to do') todoColumn.appendChild(card);
+    else if (item.status === 'in progress') progressColumn.appendChild(card);
     else if (item.status === 'done') doneColumn.appendChild(card);
   });
 }
@@ -153,6 +192,13 @@ window.resetFilters = function () {
   sortBtn.querySelector('p').textContent = '정렬: 오름차순↑';
 
   applyFilterAndSort();
+};
+
+window.deleteTodo = function (id) {
+  if (confirm('이 항목을 삭제하시겠습니까?')) {
+    todoList = todoList.filter((item) => item.id !== id);
+    applyFilterAndSort();
+  }
 };
 
 // [10. 이벤트 리스너]
@@ -218,12 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
       id: Date.now(),
       title: titleInput.value,
       content: contentInput.value,
-      status:
-        statusSelect.value === '할 일'
-          ? 'To Do'
-          : statusSelect.value === '진행 중'
-            ? 'In Progress'
-            : 'done',
+      status: STATUS_MAP[statusSelect.value] || 'to do',
       priority: selectedpriority,
     };
 
