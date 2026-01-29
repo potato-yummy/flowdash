@@ -1,0 +1,48 @@
+/* 반응형 */
+
+/* 태블릿 (1119px이하) */
+
+@media (max-width: 1119px) {
+  .dashboard-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .dashboard-container > div:last-child {
+    grid-column: span 2;
+  }
+
+  .search-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .to-do-search,
+  .array,
+  .add {
+    grid-column: span 2;
+    width: 100%;
+  }
+
+  .term,
+  .priority {
+    grid-column: span 1;
+    width: 100%;
+  }
+
+  .to-do-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+/* 모바일 (767px이하) */
+@media (max-width: 767px) {
+  .greeting-nickname h1 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}

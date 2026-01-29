@@ -1,0 +1,26 @@
+:root {
+  --bg-main: linear-gradient(135deg, #e0e7ff 0%, #f3e8ff 100%);
+  --bg-card: #ffffff;
+  --bg-kanban: #f1f2f5;
+  --text-main: #333333;
+  --text-sub: #79899b;
+  --border: #eeeeee;
+  --input-bg: #ffffff;
+  --accent: #4d53eb;
+  --accent-text: #4d53eb;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-strong: 0 14px 36px rgba(0, 0, 0, 0.12);
+}
+
+body.dark-mode {
+  --bg-main: linear-gradient(135deg, #343d3f 0%, #252540 100%);
+  --bg-card: #1e1e1e;
+  --bg-kanban: #252525;
+  --text-main: #e0e0e0;
+  --text-sub: #a0a0a0;
+  --border: #333333;
+  --input-bg: #2c2c2c;
+  --accent: #ffffff;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  --shadow-strong: 0 14px 36px rgba(0, 0, 0, 0.4);
+}
