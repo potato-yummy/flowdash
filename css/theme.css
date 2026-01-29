@@ -12,13 +12,14 @@
 }
 
 body.dark-mode {
-  --bg-main: linear-gradient(135deg, #1e1e2e 0%, #252540 100%);
+  --bg-main: linear-gradient(135deg, #343d3f 0%, #252540 100%);
   --bg-card: #1e1e1e;
   --bg-kanban: #252525;
   --text-main: #e0e0e0;
   --text-sub: #a0a0a0;
   --border: #333333;
   --input-bg: #2c2c2c;
+  --accent: #ffffff;
   --shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
   --shadow-strong: 0 14px 36px rgba(0, 0, 0, 0.4);
 }

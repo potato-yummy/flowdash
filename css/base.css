@@ -192,7 +192,7 @@ input:focus {
 
 .array {
   padding: 10px 15px;
-  border: 1px solid #eee;
+  border: 1px solid var(--border);
   border-radius: 10px;
   background-color: var(--bg-card);
   font-size: 14px;
@@ -300,21 +300,27 @@ input:focus {
 
 .filter-chip {
   background-color: var(--bg-card);
-  color: #4d53eb;
+  color: var(--accent);
   padding: 5px 12px;
   border-radius: 20px;
   font-size: 12px;
   font-weight: 600;
-  border: 1px solid #dbe0ff;
+  border: 1px solid var(--border);
 }
 
 .reset-all-btn {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+
   color: #ff4d4d;
-  background: none;
-  border: none;
+
+  padding: 6px 14px;
+  border-radius: 20px;
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 input,
