@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FlowDash</title>
     <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/theme.css" />
   </head>
   <body>
     <!--  닉네임 모달 -->
@@ -18,7 +21,12 @@
         </div>
 
         <div class="nickname-input-box">
-          <input type="text" maxlength="10" placeholder="닉네임을 설정해주세요." value="FlowDash" />
+          <input
+            type="text"
+            maxlength="10"
+            placeholder="닉네임을 설정해주세요."
+            value="FlowDash"
+          />
           <button class="login-btn">확인</button>
         </div>
       </div>
@@ -99,7 +107,9 @@
 
       <div class="active-filters-container">
         <div id="filter-status-tags" class="filter-tags"></div>
-        <button class="reset-all-btn" onclick="resetFilters()">전체 데이터 초기화</button>
+        <button class="reset-all-btn" onclick="resetFilters()">
+          전체 데이터 초기화
+        </button>
       </div>
 
       <!-- 칸반 보드 -->
@@ -138,7 +148,10 @@
           <h4>제목 *</h4>
           <input type="text" placeholder="제목을 입력하세요" />
           <h4>내용</h4>
-          <textarea class="modal-content-input" placeholder="내용을 입력하세요"></textarea>
+          <textarea
+            class="modal-content-input"
+            placeholder="내용을 입력하세요"
+          ></textarea>
           <h4>우선순위</h4>
           <div class="modal-priority">
             <button type="button" data-priority="높음">높음</button>
@@ -164,9 +177,8 @@
 
     <!-- JS -->
 
-    <script src="js/header.js" defer></script>
-    <script src="js/dashboard.js" defer></script>
-    <script src="js/darkmode.js" defer></script>
-    <script src="js/number.js" defer></script>
+    <script src="js/darkmode.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/header.js"></script>
   </body>
 </html>

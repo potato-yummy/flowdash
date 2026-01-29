@@ -1,0 +1,24 @@
+:root {
+  --bg-main: #f6f7fa;
+  --bg-card: #ffffff;
+  --bg-kanban: #f1f2f5;
+  --text-main: #333333;
+  --text-sub: #79899b;
+  --border: #eeeeee;
+  --input-bg: #ffffff;
+  --accent: #4d53eb;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-strong: 0 14px 36px rgba(0, 0, 0, 0.12);
+}
+
+body.dark-mode {
+  --bg-main: #121212;
+  --bg-card: #1e1e1e;
+  --bg-kanban: #252525;
+  --text-main: #e0e0e0;
+  --text-sub: #a0a0a0;
+  --border: #333333;
+  --input-bg: #2c2c2c;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  --shadow-strong: 0 14px 36px rgba(0, 0, 0, 0.4);
+}
