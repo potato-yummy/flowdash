@@ -1,0 +1,353 @@
+/* 대시보드 개별 통계 박스 */
+.dashboard-container > div {
+  background-color: var(--bg-card);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.dashboard-container:hover,
+.Dashboard-container:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.dashboard-container > div,
+.Dashboard-container > div {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.dashboard-container > div:hover,
+.Dashboard-container > div:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* dashboard card hover */
+.dashboard-container > div {
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.dashboard-container > div:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+button.add {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+button.add:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+button.add:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* 카드가 들어가는 리스트 영역 */
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 10px 0;
+}
+
+.todo-card {
+  background: var(--bg-card);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.todo-card:hover {
+  transform: translateY(-3px);
+}
+
+.todo-card h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 12px 0 8px 0;
+  color: var(--text-main);
+}
+
+.todo-card p {
+  font-size: 14px;
+  color: #636e72;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-sub);
+  border-top: 1px solid #f1f2f5;
+  padding-top: 12px;
+}
+
+.priority-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.todo-card.is-done {
+  background-color: var(--bg-card);
+}
+
+.todo-card.is-done h4 {
+  text-decoration: line-through;
+  color: #9ba9ba;
+}
+
+.todo-card.is-done p {
+  color: #c1c1c1;
+}
+
+.p-높음 {
+  background: var(--bg-card);
+  color: #ff4d4d;
+}
+.p-중간 {
+  background: var(--bg-card);
+  color: #ff9f1c;
+}
+.p-낮음 {
+  background: var(--bg-card);
+  color: #2ecc71;
+}
+
+/*  모달  */
+.modal {
+  display: none;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-popup {
+  background-color: var(--bg-card);
+  padding: 30px;
+  border-radius: 20px;
+  width: 450px;
+  max-width: 90%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modal-popup h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.modal-todo-list {
+  width: 100%;
+  padding: 12px 35px 12px 15px;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  outline: none;
+  font-size: 14px;
+  background-color: var(--input-bg);
+  cursor: pointer;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2379899b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 14px;
+}
+
+.modal-popup input[type="text"],
+.modal-popup select {
+  padding: 12px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  outline: none;
+  font-size: 14px;
+}
+
+.modal-content-input {
+  width: 100%;
+  height: 120px;
+  padding: 12px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  outline: none;
+  font-size: 14px;
+  resize: none;
+  font-family: inherit;
+}
+
+.modal-new-correct {
+  font-size: 24px;
+  padding-bottom: 10px;
+}
+
+.modal-priority {
+  display: flex;
+  gap: 10px;
+}
+
+.modal-priority button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #eee;
+  background: white;
+  color: #79899b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal-priority button[data-priority="높음"].active {
+  background-color: #ff4d4d; /* 빨간색 */
+  color: white;
+  border-color: #ff4d4d;
+}
+
+.modal-priority button[data-priority="중간"].active {
+  background-color: #ff9f1c; /* 주황색 */
+  color: white;
+  border-color: #ff9f1c;
+}
+
+.modal-priority button[data-priority="낮음"].active {
+  background-color: #2ecc71; /* 초록색 */
+  color: white;
+  border-color: #2ecc71;
+}
+
+.modal-contract {
+  display: flex;
+  justify-content: flex-end;
+  gap: 30px;
+  margin-top: 10px;
+}
+
+.modal-save {
+  background-color: #4d53eb;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.modal-cancel {
+  color: var(--text-main);
+  border: none;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #c1c1c1;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0 5px;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.delete-btn:hover {
+  color: #ff5f5f; /* 마우스 올리면 빨간색으로 변경 */
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 칸반 기둥, 숫자배지 */
+
+.column {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 16px;
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.column:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-strong);
+  border-color: var(--accent);
+}
+
+.column-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--text-main);
+  margin-bottom: 16px;
+  color: var(--text-main);
+}
+
+.badge {
+  min-width: 28px;
+  height: 24px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background-color: var(--input-bg);
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.empty-msg {
+  height: 100%;
+  min-height: 200px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  color: #9ba9ba;
+  font-size: 14px;
+}
