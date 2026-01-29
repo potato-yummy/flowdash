@@ -22,3 +22,7 @@ body.dark-mode {
   --shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
   --shadow-strong: 0 14px 36px rgba(0, 0, 0, 0.4);
 }
+
+body.dark-mode .bg-image {
+  background: linear-gradient(135deg, #1e1e2e 0%, #252540 100%);
+}
