@@ -3,7 +3,7 @@ body {
   color: var(--text-main);
   display: flex;
   justify-content: center;
-  height: 100vh;
+  height: 100%;
   padding: 0 25px;
   transition:
     background-color 0.3s,
@@ -181,7 +181,7 @@ input:focus {
   transform: translateY(-50%);
   color: #9ba9ba;
   font-size: 14px;
-  background-image: url('../assets/icons8-돋보기.svg');
+  background-image: url("../assets/icons8-돋보기.svg");
   background-size: contain;
   width: 20px;
   height: 20px;
