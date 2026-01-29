@@ -7,6 +7,7 @@
   --border: #eeeeee;
   --input-bg: #ffffff;
   --accent: #4d53eb;
+  --accent-text: #4d53eb;
   --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   --shadow-strong: 0 14px 36px rgba(0, 0, 0, 0.12);
 }

@@ -95,7 +95,7 @@ input:focus {
 }
 
 .nickname {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .greeting-nickname p {
