@@ -6,6 +6,38 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
+.dashboard-container:hover,
+.Dashboard-container:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.dashboard-container > div,
+.Dashboard-container > div {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.dashboard-container > div:hover,
+.Dashboard-container > div:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* dashboard card hover */
+.dashboard-container > div {
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.dashboard-container > div:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
 /* 카드가 들어가는 리스트 영역 */
 .card-list {
   display: flex;
@@ -140,7 +172,7 @@
   background-size: 14px;
 }
 
-.modal-popup input[type='text'],
+.modal-popup input[type="text"],
 .modal-popup select {
   padding: 12px;
   border: 1px solid #eee;
@@ -182,19 +214,19 @@
   transition: all 0.2s ease;
 }
 
-.modal-priority button[data-priority='높음'].active {
+.modal-priority button[data-priority="높음"].active {
   background-color: #ff4d4d; /* 빨간색 */
   color: white;
   border-color: #ff4d4d;
 }
 
-.modal-priority button[data-priority='중간'].active {
+.modal-priority button[data-priority="중간"].active {
   background-color: #ff9f1c; /* 주황색 */
   color: white;
   border-color: #ff9f1c;
 }
 
-.modal-priority button[data-priority='낮음'].active {
+.modal-priority button[data-priority="낮음"].active {
   background-color: #2ecc71; /* 초록색 */
   color: white;
   border-color: #2ecc71;
